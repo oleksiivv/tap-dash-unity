@@ -14,7 +14,11 @@ public class PlayerUI : ScenesManager
 
     public static int addCnt=1;
 
+#if UNITY_IOS
+    private string appId="4234608";
+#else
     private string appId="4234609";
+#endif
 
     private bool adsAlreadyShowed=false;
 
@@ -103,10 +107,18 @@ public class PlayerUI : ScenesManager
 
     private InterstitialAd intersitional;
     private BannerView banner;
+
+#if UNITY_IOS
+    private string appId_admob="ca-app-pub-4962234576866611~7942157909";
+    private string intersitionalId="ca-app-pub-4962234576866611/7750586215";
+
+    private string bannerId = "ca-app-pub-4962234576866611/1376749551";
+#else
     private string appId_admob="ca-app-pub-4962234576866611~9475644858";
     private string intersitionalId="ca-app-pub-4962234576866611/6236427362";
 
     private string bannerId = "ca-app-pub-4962234576866611/7189082196";
+#endif
 
      AdRequest AdRequestBuild(){
          return new AdRequest.Builder().Build();
